@@ -22,9 +22,12 @@ export default function SignInPage() {
         callbackUrl: "/protected"
       });
 
-      if (result?.error) {
-        setError("Invalid credentials. Please try again.");
-      }
+     if (result?.error) {
+      setError("Invalid credentials. Please try again.");
+    } else {
+      // Successful login - redirect to home page
+      window.location.href = "/";
+    }
     } catch (error) {
       setError("An error occurred. Please try again later.");
     } finally {
