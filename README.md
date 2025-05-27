@@ -2,7 +2,7 @@
 
 **Developed by:** Harsahibjit Singh & Astik
 
-![Admin Panel Screenshot](.comsochackx/admin/adminpanelss.png)
+![Admin Panel Screenshot](https://github.com/Harsahibjit-Singh/comsochackx/blob/main/admin/adminpanelss.png?raw=true)
 
 A sleek, modern administration dashboard for managing teams and members for the COMSOC HACKX event.
 
