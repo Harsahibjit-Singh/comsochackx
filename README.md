@@ -1,10 +1,11 @@
-# COMSOC HACKX Admin Panel
+# COMSOC HACKX website and  Admin Panel
+
+**Developed by:** Harsahibjit Singh & Astik
 
 ![Admin Panel Screenshot](.comsochackx/admin/adminpanelss.png)
 
 A sleek, modern administration dashboard for managing teams and members for the COMSOC HACKX event.
 
-**Developed by:** Harsahibjit Singh
 ## Features
 
 - **Team Management**
