@@ -91,7 +91,7 @@ export default function Home() {
           
           {teams.length === 0 ? (
             <div className="bg-white rounded-xl shadow-sm p-8 text-center">
-              <p className="text-gray-500 mb-4">You haven't created any teams yet</p>
+              <p className="text-gray-500 mb-4">You haven&apos;t created any teams yet</p>
               <button
                 onClick={() => setShowTeamForm(true)}
                 className="bg-indigo-600 hover:bg-indigo-700 text-white px-6 py-2 rounded-lg inline-flex items-center gap-2"
