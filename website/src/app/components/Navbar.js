@@ -48,13 +48,15 @@ export default function NavbarPage() {
             </div>
             
             {/* Desktop Navigation */}
-            <div className="hidden md:flex items-center space-x-1 h-full">
+            <div className="hidden md:flex items-center h-full">
               <NavLink href="/">Home</NavLink>
               <NavLink href="/about">About Us</NavLink>
-              <NavLink href="/theme">Theme</NavLink>
+              <NavLink href="/theme">Tracks</NavLink>
               <NavLink href="/schedule">Schedule</NavLink>
               <NavLink href="/contact">Contact Us</NavLink>
               <NavLink href="/result">Results</NavLink>
+              <NavLink href="/sponsor">Sponsorship</NavLink>
+              <NavLink href="/prize">Prize</NavLink>
             </div>
 
             {/* Mobile menu button */}
@@ -84,26 +86,25 @@ export default function NavbarPage() {
         )}
 
         {/* Mobile Menu Content */}
-      {/* Mobile Menu Content */}
-<div 
-  className={`md:hidden fixed inset-0 z-50 transition-all duration-700 ease-[cubic-bezier(0.68,-0.6,0.32,1.6)]  ${
-    mobileMenuOpen ? 'translate-x-0 opacity-100' : 'translate-x-full opacity-0'
-  }`}
-  style={{
-    background: 'rgba(0,0,0,1)',
-    border: '2px solid transparent',
-    backgroundImage: 'linear-gradient(rgba(0,0,0,0.95), rgba(0,0,0,0.95)), linear-gradient(135deg, #8b5cf6, #a855f7, #c084fc)',
-    backgroundOrigin: 'border-box',
-    backgroundClip: 'content-box, border-box',
-    boxShadow: `
-      inset 0 0 60px rgba(139, 92, 246, 0.3),
-      0 0 80px rgba(139, 92, 246, 0.4),
-      0 0 120px rgba(168, 85, 247, 0.3)
-    `
-  }}
->
+        <div 
+          className={`md:hidden fixed inset-0 z-50 transition-all duration-700 ease-[cubic-bezier(0.68,-0.6,0.32,1.6)] ${
+            mobileMenuOpen ? 'translate-x-0 opacity-100' : 'translate-x-full opacity-0'
+          }`}
+          style={{
+            background: 'rgba(0,0,0,1)',
+            border: '2px solid transparent',
+            backgroundImage: 'linear-gradient(rgba(0,0,0,0.95), rgba(0,0,0,0.95)), linear-gradient(135deg, #8b5cf6, #a855f7, #c084fc)',
+            backgroundOrigin: 'border-box',
+            backgroundClip: 'content-box, border-box',
+            boxShadow: `
+              inset 0 0 60px rgba(139, 92, 246, 0.3),
+              0 0 80px rgba(139, 92, 246, 0.4),
+              0 0 120px rgba(168, 85, 247, 0.3)
+            `
+          }}
+        >
           {/* Glowing border effects */}
-          <div className="absolute inset-0 rounded-lg  ">
+          <div className="absolute inset-0 rounded-lg">
             <div className="absolute inset-0 bg-gradient-to-r from-violet-500/20 via-purple-500/20 to-violet-500/20 blur-xl"></div>
             <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-violet-400 to-transparent"></div>
             <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-violet-400 to-transparent"></div>
@@ -112,7 +113,7 @@ export default function NavbarPage() {
           </div>
 
           {/* Subtle background pattern */}
-          <div className="absolute inset-0 opacity-5 ">
+          <div className="absolute inset-0 opacity-5">
             <div className="absolute top-20 left-10 w-32 h-32 bg-violet-500 rounded-full blur-3xl animate-pulse"></div>
             <div className="absolute top-40 right-20 w-24 h-24 bg-purple-500 rounded-full blur-2xl animate-pulse" style={{ animationDelay: '1s' }}></div>
             <div className="absolute bottom-40 left-20 w-28 h-28 bg-indigo-500 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '2s' }}></div>
@@ -152,9 +153,8 @@ export default function NavbarPage() {
                 </svg>
               </button>
             </div>
-
             {/* Menu Items */}
-            <div className="flex-1 flex flex-col items-center justify-center px-8 py-8  bg-gray-950">
+            <div className="flex-1 flex flex-col items-center justify-center px-8 py-8 bg-gray-950">
               <div className="w-full max-w-sm space-y-6">
                 {[
                   { href: "/", text: "Home", icon: "🏠" },
@@ -177,7 +177,7 @@ export default function NavbarPage() {
               </div>
               
               {/* Mobile CTA Button */}
-              <div className="mt-8 w-full max-w-sm ">
+              <div className="mt-8 w-full max-w-sm">
                 <Link 
                   href="/register" 
                   onClick={() => setMobileMenuOpen(false)}
@@ -202,40 +202,54 @@ export default function NavbarPage() {
 
             {/* Footer */}
             <div 
-              className="p-8 text-center border-t border-violet-500/30 mx-4  bg-gray-950" 
+              className="p-8 text-center border-t border-violet-500/30 mx-4 bg-gray-950" 
               style={{
                 boxShadow: '0 -1px 0 0 rgba(139, 92, 246, 0.5)'
               }}
             >
-              <div className="flex justify-center space-x-6 mb-6">
-                {[
-                  { name: 'facebook', icon: '📘' },
-                  { name: 'twitter', icon: '🐦' },
-                  { name: 'instagram', icon: '📷' },
-                  { name: 'linkedin', icon: '💼' }
-                ].map((social, index) => (
-                  <a 
-                    key={social.name}
-                    href={`https://${social.name}.com`} 
-                    target="_blank" 
-                    rel="noopener noreferrer"
-                    className="text-gray-300 hover:text-violet-300 transition-all duration-300 transform hover:scale-110"
-                    style={{
-                      animation: `slideIn 0.5s ease-out ${0.7 + index * 0.1}s both`,
-                      opacity: 0
-                    }}
-                  >
-                    <div 
-                      className="w-12 h-12 rounded-xl bg-black border border-violet-500/30 hover:border-violet-400/50 backdrop-blur-sm flex items-center justify-center transition-all"
-                      style={{
-                        boxShadow: '0 0 15px rgba(139, 92, 246, 0.3), inset 0 0 15px rgba(139, 92, 246, 0.1)'
-                      }}
-                    >
-                      <span className="text-2xl">{social.icon}</span>
-                    </div>
-                  </a>
-                ))}
-              </div>
+<div className="flex justify-center space-x-6 mb-6">
+  {/* Instagram */}
+  <a
+    href="https://www.instagram.com/ieeecomsoccu?igsh=M2drYWhrbXMyZ3I1&utm_source=qr"
+    target="_blank"
+    rel="noopener noreferrer"
+    className="text-gray-300 hover:text-violet-300 transition-all duration-300 transform hover:scale-110"
+    style={{
+      animation: `slideIn 0.5s ease-out 0.7s both`,
+      opacity: 0
+    }}
+  >
+    <div
+      className="w-12 h-12 rounded-xl bg-black border border-violet-500/30 hover:border-violet-400/50 backdrop-blur-sm flex items-center justify-center transition-all"
+      style={{
+        boxShadow: '0 0 15px rgba(139, 92, 246, 0.3), inset 0 0 15px rgba(139, 92, 246, 0.1)'
+      }}
+    >
+      <span className="text-2xl">📷</span>
+    </div>
+  </a>
+  {/* LinkedIn */}
+  <a
+    href="https://www.linkedin.com/company/ieee-comsoc-cusb/"
+    target="_blank"
+    rel="noopener noreferrer"
+    className="text-gray-300 hover:text-violet-300 transition-all duration-300 transform hover:scale-110"
+    style={{
+      animation: `slideIn 0.5s ease-out 0.8s both`,
+      opacity: 0
+    }}
+  >
+    <div
+      className="w-12 h-12 rounded-xl bg-black border border-violet-500/30 hover:border-violet-400/50 backdrop-blur-sm flex items-center justify-center transition-all"
+      style={{
+        boxShadow: '0 0 15px rgba(139, 92, 246, 0.3), inset 0 0 15px rgba(139, 92, 246, 0.1)'
+      }}
+    >
+      <span className="text-2xl">💼</span>
+    </div>
+  </a>
+</div>
+
             </div>
           </div>
         </div>
@@ -265,6 +279,7 @@ export default function NavbarPage() {
   );
 }
 
+// Desktop NavLink component
 function NavLink({ href, children }) {
   return (
     <Link
@@ -298,6 +313,7 @@ function NavLink({ href, children }) {
   );
 }
 
+// Mobile NavLink component
 function MobileNavLink({ href, children, onClick, delay = 0, icon }) {
   return (
     <Link

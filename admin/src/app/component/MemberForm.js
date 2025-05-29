@@ -1,7 +1,8 @@
-"use client";
+'use client';
 import { useState, useEffect } from "react";
 import axios from "axios";
-import { FiUpload, FiX } from "react-icons/fi";
+import { FiUpload, FiX, FiUser, FiMail, FiPhone, FiLinkedin } from "react-icons/fi";
+import { motion } from 'framer-motion';
 
 export default function MemberForm({ teamId, isLead = false, onSuccess }) {
   const [formData, setFormData] = useState({
@@ -84,57 +85,80 @@ export default function MemberForm({ teamId, isLead = false, onSuccess }) {
   };
 
   return (
-    <div className="p-6">
-      <div className="mb-6">
-        <h2 className="text-2xl font-bold text-gray-900">
+    <div className="p-6 text-white overflow-y-hidden bg-gradient-to-br from-purple-900 to-black rounded-lg shadow-lg backdrop-blur-sm">
+      <div className=" ">
+        <motion.h2 
+          initial={{ opacity: 0, y: -10 }}
+          animate={{ opacity: 1, y: 0 }}
+          className="text-2xl md:text-3xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-pink-400"
+        >
           {isLead ? "Add Team Lead" : "Add Team Member"}
-        </h2>
-        <p className="text-gray-600 mt-1">
+        </motion.h2>
+        <motion.p 
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 0.1 }}
+          className="text-purple-200 mt-2"
+        >
           {isLead 
             ? "The team lead will manage this group" 
             : "Add a new member to this team"}
-        </p>
+        </motion.p>
       </div>
 
-      <form onSubmit={handleSubmit} className="space-y-5">
+      <motion.form 
+        onSubmit={handleSubmit} 
+        className="space-y-6"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 0.2 }}
+      >
         {/* Name Field */}
         <div>
-          <label className="block text-sm font-medium text-gray-700 mb-2">Full Name *</label>
-          <input
-            type="text"
-            name="name"
-            value={formData.name}
-            onChange={handleChange}
-            className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
-            placeholder="John Doe"
-            required
-          />
+          <label className="block text-sm font-medium text-purple-300 mb-2">Full Name *</label>
+          <div className="relative">
+            <FiUser className="absolute left-3 top-1/2 transform -translate-y-1/2 text-purple-400" />
+            <input
+              type="text"
+              name="name"
+              value={formData.name}
+              onChange={handleChange}
+              className="w-full pl-10 pr-4 py-3 bg-black bg-opacity-30 border border-purple-500/30 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-purple-500 backdrop-blur-sm"
+              placeholder="John Doe"
+              required
+            />
+          </div>
         </div>
 
         {/* Photo Upload */}
         <div>
-          <label className="block text-sm font-medium text-gray-700 mb-2">Photo *</label>
+          <label className="block text-sm font-medium text-purple-300 mb-2">Photo *</label>
           {formData.photo_url ? (
             <div className="flex items-center gap-4">
               <img
                 src={formData.photo_url}
                 alt="Preview"
-                className="w-16 h-16 rounded-full object-cover border-2 border-gray-200"
+                className="w-16 h-16 rounded-full object-cover border-2 border-purple-500/50 shadow-md"
               />
-              <button
+              <motion.button
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
                 type="button"
                 onClick={() => setFormData({...formData, photo_url: ""})}
-                className="text-red-500 hover:text-red-700 flex items-center gap-1 text-sm"
+                className="text-pink-400 hover:text-pink-300 flex items-center gap-1 text-sm transition-colors duration-200"
               >
                 <FiX /> Change Photo
-              </button>
+              </motion.button>
             </div>
           ) : (
-            <div className="flex items-center justify-center w-full">
-              <label className="flex flex-col items-center justify-center w-full h-32 border-2 border-gray-300 border-dashed rounded-lg cursor-pointer bg-gray-50 hover:bg-gray-100 transition-colors duration-200">
+            <motion.div 
+              whileHover={{ scale: 1.02 }}
+              className="flex items-center justify-center w-full"
+            >
+              <label className="flex flex-col items-center justify-center w-full h-32 border-2 border-purple-500/30 border-dashed rounded-lg cursor-pointer bg-black bg-opacity-30 hover:bg-opacity-50 transition-all duration-200 backdrop-blur-sm">
                 <div className="flex flex-col items-center justify-center pt-5 pb-6">
-                  <FiUpload className="text-gray-400 text-xl mb-2" />
-                  <p className="text-sm text-gray-500">
+                  <FiUpload className="text-purple-400 text-xl mb-2" />
+                  <p className="text-sm text-purple-200">
                     {isUploading ? "Uploading..." : "Click to upload a photo"}
                   </p>
                 </div>
@@ -147,60 +171,69 @@ export default function MemberForm({ teamId, isLead = false, onSuccess }) {
                   required
                 />
               </label>
-            </div>
+            </motion.div>
           )}
         </div>
 
         {/* Email Field */}
         <div>
-          <label className="block text-sm font-medium text-gray-700 mb-2">Email *</label>
-          <input
-            type="email"
-            name="mail"
-            value={formData.mail}
-            onChange={handleChange}
-            className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
-            placeholder="member@company.com"
-            required
-          />
+          <label className="block text-sm font-medium text-purple-300 mb-2">Email *</label>
+          <div className="relative">
+            <FiMail className="absolute left-3 top-1/2 transform -translate-y-1/2 text-purple-400" />
+            <input
+              type="email"
+              name="mail"
+              value={formData.mail}
+              onChange={handleChange}
+              className="w-full pl-10 pr-4 py-3 bg-black bg-opacity-30 border border-purple-500/30 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-purple-500 backdrop-blur-sm"
+              placeholder="member@company.com"
+              required
+            />
+          </div>
         </div>
 
         {/* Phone Number */}
         <div>
-          <label className="block text-sm font-medium text-gray-700 mb-2">Phone Number</label>
-          <input
-            type="tel"
-            name="pno"
-            value={formData.pno}
-            onChange={handleChange}
-            className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
-            placeholder="+1 (555) 123-4567"
-          />
+          <label className="block text-sm font-medium text-purple-300 mb-2">Phone Number</label>
+          <div className="relative">
+            <FiPhone className="absolute left-3 top-1/2 transform -translate-y-1/2 text-purple-400" />
+            <input
+              type="tel"
+              name="pno"
+              value={formData.pno}
+              onChange={handleChange}
+              className="w-full pl-10 pr-4 py-3 bg-black bg-opacity-30 border border-purple-500/30 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-purple-500 backdrop-blur-sm"
+              placeholder="+1 (555) 123-4567"
+            />
+          </div>
         </div>
 
         {/* LinkedIn URL */}
         <div>
-          <label className="block text-sm font-medium text-gray-700 mb-2">LinkedIn Profile</label>
-          <input
-            type="url"
-            name="linkedin_url"
-            value={formData.linkedin_url}
-            onChange={handleChange}
-            className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
-            placeholder="https://linkedin.com/in/username"
-          />
+          <label className="block text-sm font-medium text-purple-300 mb-2">LinkedIn Profile</label>
+          <div className="relative">
+            <FiLinkedin className="absolute left-3 top-1/2 transform -translate-y-1/2 text-purple-400" />
+            <input
+              type="url"
+              name="linkedin_url"
+              value={formData.linkedin_url}
+              onChange={handleChange}
+              className="w-full pl-10 pr-4 py-3 bg-black bg-opacity-30 border border-purple-500/30 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-purple-500 backdrop-blur-sm"
+              placeholder="https://linkedin.com/in/username"
+            />
+          </div>
         </div>
 
         {/* Rank (Only for members) */}
         {!isLead && (
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-2">Position/Rank</label>
+            <label className="block text-sm font-medium text-purple-300 mb-2">Position/Rank</label>
             <input
               type="text"
               name="rank"
               value={formData.rank}
               onChange={handleChange}
-              className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
+              className="w-full px-4 py-3 bg-black bg-opacity-30 border border-purple-500/30 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-purple-500 backdrop-blur-sm"
               placeholder="E.g. Senior Developer, Marketing Manager"
             />
           </div>
@@ -208,29 +241,41 @@ export default function MemberForm({ teamId, isLead = false, onSuccess }) {
 
         {/* Status Messages */}
         {error && (
-          <div className="bg-red-50 text-red-600 p-3 rounded-lg text-sm">
+          <motion.div 
+            initial={{ opacity: 0, y: -10 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="bg-red-900/50 text-red-300 p-4 rounded-lg border border-red-500/30 backdrop-blur-sm"
+          >
             {error}
-          </div>
+          </motion.div>
         )}
         {success && (
-          <div className="bg-green-50 text-green-600 p-3 rounded-lg text-sm">
+          <motion.div 
+            initial={{ opacity: 0, y: -10 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="bg-green-900/50 text-green-300 p-4 rounded-lg border border-green-500/30 backdrop-blur-sm"
+          >
             {success}
-          </div>
+          </motion.div>
         )}
 
         {/* Submit Button */}
-        <div className="flex justify-end gap-3 pt-4">
-          <button
+        <div className="flex justify-end gap-3 pt-0.1 ">
+          <motion.button
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
             type="button"
             onClick={() => onSuccess()}
-            className="px-4 py-2 border border-gray-300 rounded-lg text-gray-700 hover:bg-gray-50 transition-colors duration-200"
+            className="px-5 py-2.5 border border-purple-500/50 rounded-lg text-purple-300 hover:bg-purple-900/30 transition-all duration-300 backdrop-blur-sm"
           >
             Cancel
-          </button>
-          <button
+          </motion.button>
+          <motion.button
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
             type="submit"
             disabled={isUploading}
-            className="px-6 py-2 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 disabled:opacity-50 transition-colors duration-200 flex items-center gap-2"
+            className="px-6 py-2.5 bg-gradient-to-r from-purple-600 to-pink-600 text-white rounded-lg hover:from-purple-700 hover:to-pink-700 disabled:opacity-50 transition-all duration-300 shadow-lg flex items-center gap-2 "
           >
             {isUploading ? (
               <>
@@ -241,9 +286,9 @@ export default function MemberForm({ teamId, isLead = false, onSuccess }) {
                 Processing...
               </>
             ) : `Add ${isLead ? 'Lead' : 'Member'}`}
-          </button>
+          </motion.button>
         </div>
-      </form>
+      </motion.form>
     </div>
   );
 }

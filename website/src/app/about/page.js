@@ -68,36 +68,36 @@ export default function AboutPage() {
                 viewport={{ once: true }}
                 className="text-3xl md:text-4xl font-bold mb-12 text-center"
               >
-                About <span className="bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-violet-200">IEEE</span>
+                About <span className="bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-violet-200">IEEE CUSB</span>
               </motion.h2>
               
               <div className="flex flex-col lg:flex-row items-center gap-12">
-                <div className="lg:w-1/2">
-                  <p className="text-gray-300 mb-6 leading-relaxed">
-                    The <span className="text-purple-300 font-semibold">Institute of Electrical and Electronics Engineers (IEEE)</span> is the world's largest technical professional organization dedicated to advancing technology for humanity. Founded in 1963 from the merger of AIEE and IRE, IEEE has:
-                  </p>
-                  <div className="space-y-4 mb-8">
-                    <div className="flex items-start">
-                      <div className="text-purple-400 mr-3 mt-1">•</div>
-                      <p className="text-gray-300"><span className="font-semibold">400,000+ members</span> across 160+ countries</p>
-                    </div>
-                    <div className="flex items-start">
-                      <div className="text-purple-400 mr-3 mt-1">•</div>
-                      <p className="text-gray-300"><span className="font-semibold">39 Technical Societies</span> covering cutting-edge fields</p>
-                    </div>
-                    <div className="flex items-start">
-                      <div className="text-purple-400 mr-3 mt-1">•</div>
-                      <p className="text-gray-300">Published <span className="font-semibold">30% of world's EE/CS literature</span></p>
-                    </div>
-                    <div className="flex items-start">
-                      <div className="text-purple-400 mr-3 mt-1">•</div>
-                      <p className="text-gray-300">Developed <span className="font-semibold">1,300+ standards</span> including WiFi and Ethernet</p>
-                    </div>
-                  </div>
-                  <p className="text-gray-300 leading-relaxed">
-                    IEEE's core purpose is to foster technological innovation and excellence for the benefit of humanity through its members' contributions.
-                  </p>
-                </div>
+             <div className="lg:w-1/2">
+  <p className="text-gray-300 mb-6 leading-relaxed">
+    <span className="text-purple-300 font-semibold">IEEE Chandigarh University Student Branch</span> has secured First Place at the IEEE India Council out of 1200+ student branches.
+  </p>
+  <div className="space-y-4 mb-8">
+    <div className="flex items-start">
+      <div className="text-purple-400 mr-3 mt-1">•</div>
+      <p className="text-gray-300">One of the <span className="font-semibold">most active branches worldwide</span> under the Delhi Section</p>
+    </div>
+    <div className="flex items-start">
+      <div className="text-purple-400 mr-3 mt-1">•</div>
+      <p className="text-gray-300">Frequently organizes <span className="font-semibold">sessions and expert talks</span></p>
+    </div>
+    <div className="flex items-start">
+      <div className="text-purple-400 mr-3 mt-1">•</div>
+      <p className="text-gray-300">Hosts numerous <span className="font-semibold">events and workshops</span></p>
+    </div>
+    <div className="flex items-start">
+      <div className="text-purple-400 mr-3 mt-1">•</div>
+      <p className="text-gray-300">Dedicated to <span className="font-semibold">grooming students</span> for future challenges</p>
+    </div>
+  </div>
+  <p className="text-gray-300 leading-relaxed">
+    Our student branch is committed to preparing students for the future through technological innovation and professional development.
+  </p>
+</div>
                 <div className="lg:w-1/2 flex justify-center">
                   <div className="relative w-full max-w-md aspect-square bg-gradient-to-br from-purple-900/30 to-violet-900/30 rounded-2xl border border-violet-700/30 p-8 backdrop-blur-sm">
                     <Image 
